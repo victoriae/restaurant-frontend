@@ -57,7 +57,7 @@ export const getProducts = (category = null, next = null) => (dispatch, getState
                           ? `&category.id=${category}` : ''
   const loadLimit = (next !== null) ? limit + next : limitInit
 
-  Axios(`http://localhost:1337/products/?_start=${start}&_limit=${loadLimit}${categoryFilter}`)
+  Axios(`https://defapi.herokuapp.com/products/?_start=${start}&_limit=${loadLimit}${categoryFilter}`)
     .then(response => {
       dispatch({
         type: GET_PRODUCTS,

@@ -4,9 +4,9 @@ import {useSelector} from 'react-redux'
 const Cart = () => {
   const cart = useSelector(store => store.cartReducer.cart)
   return (
-    <div>
+    <button className="btn btn-cart">
       {`Cart: ${cart.length}`}
-    </div>
+    </button>
   )
 }
 

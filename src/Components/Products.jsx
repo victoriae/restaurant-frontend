@@ -13,7 +13,7 @@ const Products = () => {
   return (
     <>
       <div className='products'>
-        <h2>Products</h2>
+        <h2 className="title">Products</h2>
         {loading && <div>LOADING...</div>}
         {error && <div>ERROR</div>}
         {products && (

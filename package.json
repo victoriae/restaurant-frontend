@@ -74,7 +74,7 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "npx tailwindcss-cli@latest build ./src/css/tailwind.css -o ./src/css/styles.css && node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },

@@ -5,21 +5,21 @@ import { getProducts } from '../Redux/product'
 
 const Categories = () => {
   const { data, loading, error } = useFetch(
-    'http://localhost:1337/categories',
+    'https://defapi.herokuapp.com/categories',
     []
   )
   const dispatch = useDispatch()
   return (
     <>
       <div className='categories'>
-        <h2>Categories</h2>
+        <h2 className="title">Categories</h2>
         {loading && <div>LOADING...</div>}
         {error && <div>ERROR</div>}
         {data && (
-          <ul>
+          <ul className="flex space-x-4">
             {data.map((category) => (
               <li key={category.id}>
-                <button
+                <button className="btn btn-bategory"
                   onClick={() => dispatch(getProducts(category.id))}
                 >
                   {category.name}
@@ -27,7 +27,7 @@ const Categories = () => {
               </li>
             ))}
             <li>
-              <button onClick={() => dispatch(getProducts(null))}>All</button>
+              <button className="btn btn-bategory" onClick={() => dispatch(getProducts(null))}>All</button>
             </li>
           </ul>
         )}

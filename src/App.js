@@ -12,8 +12,14 @@ function App() {
 
   return (
     <Provider store={store}>
-      <Cart />
-      <Menu />
+      <div className="header py-3">
+        <div className="container mx-auto header">
+          <Cart />
+        </div>
+      </div>
+      <div className="container mx-auto">
+        <Menu />
+      </div>
     </Provider>
   )
 }
