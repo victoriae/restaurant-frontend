@@ -1,8 +1,8 @@
-import './App.css';
-import Menu from './Pages/Menu';
+import './css/styles.css'
+import Menu from './Pages/Menu'
 import { Provider } from 'react-redux'
 import generateStore from './Redux/store'
-import Cart from './Components/Cart';
+import Cart from './Components/Cart'
 import { getProducts } from './Redux/product'
 
 function App() {

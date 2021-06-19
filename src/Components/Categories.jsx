@@ -5,7 +5,7 @@ import { getProducts } from '../Redux/product'
 
 const Categories = () => {
   const { data, loading, error } = useFetch(
-    'https://defapi.herokuapp.com/categories',
+    `${process.env.REACT_APP_API_URL}/categories`,
     []
   )
   const dispatch = useDispatch()
