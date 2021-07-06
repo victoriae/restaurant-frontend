@@ -1,14 +1,16 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart, removeFromCart } from '../Redux/cart'
-import { getProducts } from '../Redux/product'
+import { addToCart } from '../Redux/cart'
+import addToCartIcon from '../assets/icons/carrito-de-compras-2.svg'
 
 const Products = () => {
-  const { products, category, loading, error } = useSelector(
+  const { products, loading, error } = useSelector(
     (store) => store.productReducer
   )
   const cart = useSelector((store) => store.cartReducer.cart)
   const dispatch = useDispatch()
+
+  const base_api_url = process.env.REACT_APP_API_URL
 
   return (
     <>
@@ -18,26 +20,36 @@ const Products = () => {
         {error && <div>ERROR</div>}
         {products && (
           <>
-            <ul>
-              {products.map((product) => (
-                <li key={product.id}>
-                  <h2>{product.name}</h2>
-                  <div>{product.description}</div>
-                  <button onClick={() => dispatch(addToCart(product.id))}>
-                    +
-                  </button>
-                  <span>
-                    {cart.filter((item) => item === product.id).length}
-                  </span>
-                  <button onClick={() => dispatch(removeFromCart(product.id))}>
-                    -
-                  </button>
-                </li>
-              ))}
+            <ul className="products-list">
+              {products.map((product) => {
+                const productCounter = cart.filter((item) => item === product.id).length
+                return (
+                  <li key={product.id}>
+                    <img className="product-image" alt={product.name} src={base_api_url + product.image.formats.thumbnail.url} />
+                    <div className="product-row">
+                      <div className="product-info">
+                        <h3>{product.name}</h3>
+                        <div className="product-price">${product.price}</div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="cart-icon" onClick={e => {
+                          productCounter < product.stock ?
+                            dispatch(addToCart(product.id)) :
+                            e.target.classList.contains('icon') && e.target.classList.add('disable-cart')
+                        }}>
+                          <img className="icon" alt="" src={addToCartIcon} />
+                          {productCounter !== 0 &&
+                            <span className="product-cart-counter">
+                              {productCounter}
+                            </span>
+                          }
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                )
+              })}
             </ul>
-            <button onClick={() => dispatch(getProducts(category, 3))}>
-              Load more
-            </button>
           </>
         )}
       </div>

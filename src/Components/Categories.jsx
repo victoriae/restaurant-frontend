@@ -16,19 +16,19 @@ const Categories = () => {
         {loading && <div>LOADING...</div>}
         {error && <div>ERROR</div>}
         {data && (
-          <ul className="flex space-x-4">
+          <ul className="categories-list">
+            <li>
+              <button className="category-link" onClick={() => dispatch(getProducts(null))}>All</button>
+            </li>
             {data.map((category) => (
               <li key={category.id}>
-                <button className="btn btn-bategory"
+                <button className="category-link"
                   onClick={() => dispatch(getProducts(category.id))}
                 >
                   {category.name}
                 </button>
               </li>
             ))}
-            <li>
-              <button className="btn btn-bategory" onClick={() => dispatch(getProducts(null))}>All</button>
-            </li>
           </ul>
         )}
       </div>

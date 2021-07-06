@@ -1,9 +1,8 @@
-import './css/styles.css'
-import Menu from './Pages/Menu'
+import './assets/css/styles.css'
 import { Provider } from 'react-redux'
 import generateStore from './Redux/store'
-import Cart from './Components/Cart'
 import { getProducts } from './Redux/product'
+import Home from './Pages/Home'
 
 function App() {
 
@@ -12,14 +11,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="header py-3">
-        <div className="container mx-auto header">
-          <Cart />
-        </div>
-      </div>
-      <div className="container mx-auto">
-        <Menu />
-      </div>
+      <Home />
     </Provider>
   )
 }
