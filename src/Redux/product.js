@@ -4,9 +4,6 @@ import Axios from 'axios'
 const initialState = {
   products: [],
   category: null,
-  start: 0,
-  limit: 3,
-  limitInit: 3,
   error: null,
   loading: false
 }
@@ -24,7 +21,7 @@ export default function productReducer(state = initialState, action) {
         ...state,
         products: action.products,
         category: action.category,
-        limit: action.limit
+        // limit: action.limit
       }
 
     case GET_PRODUCTS_ERROR:
@@ -45,25 +42,22 @@ export default function productReducer(state = initialState, action) {
 }
 
 // Actions
-export const getProducts = (category = null, next = null) => (dispatch, getState) => {
+export const getProducts = (category = null, next = null) => (dispatch) => {
 
   dispatch({
     type: GET_PRODUCTS_LOADING,
     loading: true
   })
 
-  const { start, limit, limitInit } = getState().productReducer
   const categoryFilter = (category !== null)
-                          ? `&category.id=${category}` : ''
-  const loadLimit = (next !== null) ? limit + next : limitInit
+                          ? `?category.id=${category}` : ''
 
-  Axios(`${process.env.REACT_APP_API_URL}/products/?_start=${start}&_limit=${loadLimit}${categoryFilter}`)
+  Axios(`${process.env.REACT_APP_API_URL}/products/${categoryFilter}`)
     .then(response => {
       dispatch({
         type: GET_PRODUCTS,
         products: response.data,
-        category,
-        limit: loadLimit
+        category
       })
     })
     .catch(error => {
