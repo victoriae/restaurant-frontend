@@ -22,7 +22,7 @@ const Products = () => {
           <>
             <ul className="products-list">
               {products.map((product) => {
-                const productCounter = cart.filter((item) => item === product.id).length
+                const productCounter = cart.filter((item) => item.id === product.id).length
                 return (
                   <li key={product.id}>
                     <img className="product-image" alt={product.name} src={base_api_url + product.image.formats.thumbnail.url} />
@@ -34,10 +34,10 @@ const Products = () => {
                       <div className="add-to-cart">
                         <button className="cart-icon" onClick={e => {
                           productCounter < product.stock ?
-                            dispatch(addToCart(product.id)) :
+                            dispatch(addToCart(product)) :
                             e.target.classList.contains('icon') && e.target.classList.add('disable-cart')
                         }}>
-                          <img className="icon" alt="" src={addToCartIcon} />
+                          <img id={`product-${product.id}`} className="icon" alt="" src={addToCartIcon} />
                           {productCounter !== 0 &&
                             <span className="product-cart-counter">
                               {productCounter}
