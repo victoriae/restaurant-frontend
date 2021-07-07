@@ -18,7 +18,7 @@ const Products = () => {
         <h2 className="title">Products</h2>
         {loading && <div>LOADING...</div>}
         {error && <div>ERROR</div>}
-        {products && (
+        {products && !loading && (
           <>
             <ul className="products-list">
               {products.map((product) => {

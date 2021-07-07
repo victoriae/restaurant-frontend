@@ -15,7 +15,7 @@ const Categories = () => {
         <h2 className="title">Categories</h2>
         {loading && <div>LOADING...</div>}
         {error && <div>ERROR</div>}
-        {data && (
+        {data && !loading && (
           <ul className="categories-list">
             <li>
               <button className="category-link" onClick={() => dispatch(getProducts(null))}>All</button>
