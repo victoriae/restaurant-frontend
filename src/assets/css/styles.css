@@ -13,6 +13,7 @@
   --color-text: #8d99ae;
   --color-text-light: #fff;
   --color-titles: #d90429;
+  --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
 }
 
 #root {
@@ -158,4 +159,84 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer a {
   color: var(--color-text);
+}
+
+.open-modal {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--bg-dark);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.35s ease-in;
+}
+
+.modal-content {
+  display: flex;
+  gap: 1rem;
+}
+
+.modal.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-dialog {
+  position: relative;
+  max-width: 800px;
+  max-height: 80vh;
+  border-radius: 5px;
+  background: var(--bg-light);
+  overflow: auto;
+  cursor: default;
+}
+
+.modal-dialog > * {
+  padding: 1rem;
+}
+
+.modal-header,
+.modal-footer {
+  background: var(--bg-light);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header .close-modal {
+  all: unset;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.modal p + p {
+  margin-top: 1rem;
+}
+
+[data-animation="slideInOutLeft"] .modal-dialog {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s var(--bounceEasing);
+}
+
+[data-animation="slideInOutLeft"].is-visible .modal-dialog {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.2s;
 }

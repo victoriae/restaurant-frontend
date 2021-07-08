@@ -1,7 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { setCurrentProduct } from '../Redux/product'
 import { addToCart } from '../Redux/cart'
 import addToCartIcon from '../assets/icons/carrito-de-compras-2.svg'
+import { ProductDetail } from './ProductDetail'
 
 const Products = () => {
   const { products, loading, error } = useSelector(
@@ -25,7 +27,15 @@ const Products = () => {
                 const productCounter = cart.filter((item) => item.id === product.id).length
                 return (
                   <li key={product.id}>
-                    <img className="product-image" alt={product.name} src={base_api_url + product.image.formats.thumbnail.url} />
+                    <button type="button"
+                      className="open-modal"
+                      data-open="modal1"
+                      onClick={() => {
+                        dispatch(setCurrentProduct(product))
+                        document.getElementById('modal1').classList.add('is-visible')
+                      }}>
+                      <img className="product-image" alt={product.name} src={base_api_url + product.image.formats.thumbnail.url} />
+                    </button>
                     <div className="product-row">
                       <div className="product-info">
                         <h3>{product.name}</h3>
@@ -50,6 +60,7 @@ const Products = () => {
                 )
               })}
             </ul>
+            <ProductDetail />
           </>
         )}
       </div>

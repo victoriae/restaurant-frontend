@@ -3,6 +3,7 @@ import Axios from 'axios'
 // Constants
 const initialState = {
   products: [],
+  currentProduct: null,
   category: null,
   error: null,
   loading: false
@@ -10,6 +11,7 @@ const initialState = {
 
 // Types
 const GET_PRODUCTS = 'GET_PRODUCTS'
+const SET_CURRENT_PRODUCT = 'SET_CURRENT_PRODUCT'
 const GET_PRODUCTS_ERROR = 'GET_PRODUCTS_ERROR'
 const GET_PRODUCTS_LOADING = 'GET_PRODUCTS_LOADING'
 
@@ -20,8 +22,12 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         products: action.products,
-        category: action.category,
-        // limit: action.limit
+        category: action.category
+      }
+    case SET_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: action.currentProduct
       }
 
     case GET_PRODUCTS_ERROR:
@@ -50,7 +56,7 @@ export const getProducts = (category = null, next = null) => (dispatch) => {
   })
 
   const categoryFilter = (category !== null)
-                          ? `?category.id=${category}` : ''
+    ? `?category.id=${category}` : ''
 
   Axios(`${process.env.REACT_APP_API_URL}/products/${categoryFilter}`)
     .then(response => {
@@ -72,5 +78,11 @@ export const getProducts = (category = null, next = null) => (dispatch) => {
         loading: false
       })
     })
+}
 
+export const setCurrentProduct = (currentProduct) => (dispatch) => {
+  dispatch({
+    type: SET_CURRENT_PRODUCT,
+    currentProduct: currentProduct
+  })
 }
