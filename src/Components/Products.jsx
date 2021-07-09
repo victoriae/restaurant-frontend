@@ -12,7 +12,7 @@ const Products = () => {
   const cart = useSelector((store) => store.cartReducer.cart)
   const dispatch = useDispatch()
 
-  const base_api_url = process.env.REACT_APP_API_URL
+  const base_images_url = process.env.REACT_APP_IMAGES_URL
 
   return (
     <>
@@ -34,7 +34,7 @@ const Products = () => {
                         dispatch(setCurrentProduct(product))
                         document.getElementById('modal1').classList.add('is-visible')
                       }}>
-                      <img className="product-image" alt={product.name} src={base_api_url + product.image.formats.thumbnail.url} />
+                      <img className="product-image" alt={product.name} src={base_images_url + product.image_file_name} />
                     </button>
                     <div className="product-row">
                       <div className="product-info">

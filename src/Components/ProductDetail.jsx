@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 export const ProductDetail = () => {
   const { currentProduct } = useSelector(store => store.productReducer)
-  const base_api_url = process.env.REACT_APP_API_URL
+  const base_images_url = process.env.REACT_APP_IMAGES_URL
 
   document.addEventListener("click", e => {
     if (e.target === document.querySelector(".modal.is-visible")) {
@@ -32,7 +32,7 @@ export const ProductDetail = () => {
           </header>
           <section className="modal-content">
             <div className="product-image">
-              <img className="product-image" alt={currentProduct.name} src={base_api_url + currentProduct.image.formats.thumbnail.url} />
+              <img className="product-image" alt={currentProduct.name} src={base_images_url + currentProduct.image_file_name} />
             </div>
             <div className="product-description">
               {currentProduct.description}
