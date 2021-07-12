@@ -1,12 +1,15 @@
 import React from 'react'
 import useFetch from '../Hooks/useFetch'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../Redux/product'
 
 const Categories = () => {
   const { data, loading, error } = useFetch(
     `${process.env.REACT_APP_API_URL}/categories`,
     []
+  )
+  const { category } = useSelector(
+    (store) => store.productReducer
   )
   const dispatch = useDispatch()
   return (
@@ -17,15 +20,15 @@ const Categories = () => {
         {error && <div>ERROR</div>}
         {data && !loading && (
           <ul className="categories-list">
-            <li>
+            <li className={category === null ? 'selected category' : 'category'}>
               <button className="category-link" onClick={() => dispatch(getProducts(null))}>All</button>
             </li>
-            {data.map((category) => (
-              <li key={category.id}>
+            {data.map((cat) => (
+              <li key={cat.id} className={category && category === cat.id ? 'selected category' : 'category'}>
                 <button className="category-link"
-                  onClick={() => dispatch(getProducts(category.id))}
+                  onClick={() => dispatch(getProducts(cat.id))}
                 >
-                  {category.name}
+                  {cat.name}
                 </button>
               </li>
             ))}

@@ -28,7 +28,7 @@ const Products = () => {
                 return (
                   <li key={product.id}>
                     <button type="button"
-                      className="open-modal"
+                      className="open-modal product-image-container"
                       data-open="modal1"
                       onClick={() => {
                         dispatch(setCurrentProduct(product))

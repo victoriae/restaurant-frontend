@@ -31,7 +31,7 @@ export const ProductDetail = () => {
             </button>
           </header>
           <section className="modal-content">
-            <div className="product-image">
+            <div className="product-image-container">
               <img className="product-image" alt={currentProduct.name} src={base_images_url + currentProduct.image_file_name} />
             </div>
             <div className="product-description">

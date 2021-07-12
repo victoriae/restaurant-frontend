@@ -14,6 +14,7 @@
   --color-text-light: #fff;
   --color-titles: #d90429;
   --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
+  --aspect-ratio: 16/9;
 }
 
 #root {
@@ -120,12 +121,22 @@ h1, h2, h3, h4, h5, h6 {
   text-align: right;
 }
 
+.category {
+  border-bottom: solid 1px var(--bg-buttons);
+}
+
+.category.selected {
+  background-color: var(--bg-buttons);
+  color: var(--color-text-light);
+  transition: background-color 0.3s ease-in-out;
+}
+
 .category-link {
   all: unset;
+  box-sizing: border-box;
+  width: 100%;
   padding: .5rem;
   font-size: 1.5rem;
-  width: 100%;
-  border-bottom: solid 1px var(--bg-buttons);
   cursor: pointer;
 }
 
