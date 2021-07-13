@@ -22,7 +22,7 @@ export const ProductDetail = () => {
         currentProduct &&
         <div className="modal-dialog">
           <header className="modal-header">
-            <h3>{currentProduct.name}</h3>
+            <h2>{currentProduct.name}</h2>
             <button className="close-modal"
               aria-label="close modal"
               data-close
@@ -30,11 +30,11 @@ export const ProductDetail = () => {
               ✕
             </button>
           </header>
-          <section className="modal-content">
-            <div className="product-image-container">
+          <section className="modal-content d-grid">
+            <div className="modal-content-image">
               <img className="product-image" alt={currentProduct.name} src={base_images_url + currentProduct.image_file_name} />
             </div>
-            <div className="product-description">
+            <div className="modal-content-description">
               {currentProduct.description}
             </div>
           </section>

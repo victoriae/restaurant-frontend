@@ -36,7 +36,7 @@ const Products = () => {
                       }}>
                       <img className="product-image" alt={product.name} src={base_images_url + product.image_file_name} />
                     </button>
-                    <div className="product-row">
+                    <div className="product-row d-flex s-between">
                       <div className="product-info">
                         <h3>{product.name}</h3>
                         <div className="product-price">${product.price}</div>
