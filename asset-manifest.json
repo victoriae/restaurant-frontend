@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/restaurant-frontend/static/css/main.5741f4fb.chunk.css",
-    "main.js": "/restaurant-frontend/static/js/main.1b33d1b2.chunk.js",
-    "main.js.map": "/restaurant-frontend/static/js/main.1b33d1b2.chunk.js.map",
+    "main.css": "/restaurant-frontend/static/css/main.b59d9747.chunk.css",
+    "main.js": "/restaurant-frontend/static/js/main.57a9f5cd.chunk.js",
+    "main.js.map": "/restaurant-frontend/static/js/main.57a9f5cd.chunk.js.map",
     "runtime-main.js": "/restaurant-frontend/static/js/runtime-main.1ddc2835.js",
     "runtime-main.js.map": "/restaurant-frontend/static/js/runtime-main.1ddc2835.js.map",
     "static/js/2.bcc70bf0.chunk.js": "/restaurant-frontend/static/js/2.bcc70bf0.chunk.js",
     "static/js/2.bcc70bf0.chunk.js.map": "/restaurant-frontend/static/js/2.bcc70bf0.chunk.js.map",
     "index.html": "/restaurant-frontend/index.html",
-    "static/css/main.5741f4fb.chunk.css.map": "/restaurant-frontend/static/css/main.5741f4fb.chunk.css.map",
+    "static/css/main.b59d9747.chunk.css.map": "/restaurant-frontend/static/css/main.b59d9747.chunk.css.map",
     "static/js/2.bcc70bf0.chunk.js.LICENSE.txt": "/restaurant-frontend/static/js/2.bcc70bf0.chunk.js.LICENSE.txt",
-    "static/media/carrito-de-compras-2.53f68394.svg": "/restaurant-frontend/static/media/carrito-de-compras-2.53f68394.svg",
-    "static/media/carrito-de-compras.eaa6a9b7.svg": "/restaurant-frontend/static/media/carrito-de-compras.eaa6a9b7.svg"
+    "static/media/carrito-de-compras-2.f486bff9.svg": "/restaurant-frontend/static/media/carrito-de-compras-2.f486bff9.svg",
+    "static/media/carrito-de-compras.0be60b4e.svg": "/restaurant-frontend/static/media/carrito-de-compras.0be60b4e.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.1ddc2835.js",
     "static/js/2.bcc70bf0.chunk.js",
-    "static/css/main.5741f4fb.chunk.css",
-    "static/js/main.1b33d1b2.chunk.js"
+    "static/css/main.b59d9747.chunk.css",
+    "static/js/main.57a9f5cd.chunk.js"
   ]
 }
