@@ -26,7 +26,7 @@ const Products = () => {
               {products.map((product) => {
                 const productCounter = cart.filter((item) => item.id === product.id).length
                 return (
-                  <li key={product.id}>
+                  <li className="product-item" key={product.id}>
                     <button type="button"
                       className="open-modal product-image-container"
                       data-open="modal1"

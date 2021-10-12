@@ -69,6 +69,7 @@ const Cart = () => {
             <div className="total-price-label">TOTAL</div>
             <div className="total-price-value">${totalPrice}</div>
           </div>
+          <button className="buy-products-button">BUY PRODUCTS</button>
         </>
       }
     </div >

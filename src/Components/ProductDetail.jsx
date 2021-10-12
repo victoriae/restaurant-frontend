@@ -32,7 +32,7 @@ export const ProductDetail = () => {
           </header>
           <section className="modal-content d-grid">
             <div className="modal-content-image">
-              <img className="product-image" alt={currentProduct.name} src={base_images_url + currentProduct.image_file_name} />
+              <img className="modal-image" alt={currentProduct.name} src={base_images_url + currentProduct.image_file_name} />
             </div>
             <div className="modal-content-description">
               {currentProduct.description}
